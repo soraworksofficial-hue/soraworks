@@ -1,0 +1,399 @@
+@charset "utf-8";
+
+/* ローディング画面 */
+ #loading{
+    transition: all 1s;
+    background-color: #ddd;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    display: grid;
+    place-items: center;
+ }
+
+ /* ローディングが終わった時の処理 */
+ .loaded{
+    opacity: 0;
+    visibility: hidden;
+ }
+
+ .spinner{
+    width: 200px;
+    height: 200px;
+ }
+
+ /*
+SLIDE MENU
+================================================ */
+/* ----- ↓↓ 追加 ↓↓ ----- */
+/* 開閉ボタン */
+.btn-menu {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    z-index: 4;
+    padding: .5rem 1rem;
+    border: 1px solid var(--brown);
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    transition: .4s;
+}
+.btn-menu svg {
+    fill: var(--brown);
+    margin-top: .25rem;
+    height: 2rem;
+    width: 2rem;
+}
+
+/* 閉じるボタン */
+#menu-close {
+    border: 1px solid var(--light-green);
+}
+#menu-close svg {
+    fill: var(--light-green);
+}
+
+/* スライドメニューパネル */
+#menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    padding: 8rem 2rem 2rem;
+    width: max(32vw, 20rem);
+    height: 100vh;
+    background-color: var(--brown);
+    box-shadow: 0 0 2rem var(--brown);
+    font-family: var(--oswald-font);
+    translate: 100vw;
+}
+.menu-list {
+    list-style: none;
+}
+.menu-list li {
+    margin: 1.5rem 0;
+     opacity: 0; 
+}
+.menu-list a {
+    color: var(--light-green);
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+
+/* ----- ↑↑ 追加 ↑↑ ----- */
+
+
+/* ★ 全体の高さ設定 (背景が切れないようにする修正) */
+/* 全ページ共通デザイン */
+ body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Catamaran','Noto Sans JP',sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #2c2c2c;
+    text-align: center;
+    
+}
+
+/* 全ページ共通デザイン終わり */
+
+.topPage{
+    background-image: url(../images/top2.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed; 
+    
+    /* ★ padding-top を削除 ★ */
+    /* padding-top: 50px; */
+    
+    min-height: 100%;
+}
+
+/* ★ main 要素に padding-top を追加 ★ */
+main {
+    padding-top: 50px; 
+}
+
+
+/* トップ画像の中央配置 */
+.topPage header h1 {
+    text-align: center;
+}
+
+/* リスト全体の中央配置 */
+ul.linkList {
+    margin: 50px auto 0;
+    max-width: 450px;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+/* li 要素のスタイルと幅調整 */
+ul.linkList li {
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+    width: fit-content;
+    
+    display: flex;
+    justify-content: center;
+}
+
+ul.linkList li img {
+    /* 現在の画像サイズよりも小さな値に設定してください */
+    max-width: 250px; /* 例: 最大幅を300pxに制限 */
+    height: auto;     /* 高さは幅に合わせて自動調整 */
+}
+
+/* リンクホバーエフェクト */
+ul.linkList li a:hover{
+    filter: brightness(105%);
+}
+
+/* 画像サイズ調整 */
+img{
+    max-width: 100%;
+}    
+
+
+/* subPage(共通パーツ） */
+.subPage{
+    background-image: url(../images/sub_bgimage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 35px;
+}
+
+.subPage header h1{
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #4395b2;
+}
+
+.subPage h2{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .17;
+    margin-bottom: 40px;
+    
+    
+}
+
+.subPage h3{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.subPage main{
+    padding: 0 20px;
+}
+
+.photo{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.footerlogo{
+    width: 150px;
+    
+    margin: 0 auto;
+    margin-top: 60px;
+
+    
+}
+
+.copyright{
+    margin-top: 0px;
+    color: #4395b2;
+    margin-bottom: 10px;
+    
+}
+
+
+/* subPage(共通パーツ）終わり */
+
+/* aboutpage(個別パーツ) */
+.aboutDetailSec .text{
+    font-size: 12px;
+    line-height: 1.78;
+}
+
+/* contactpage(個別パーツ) */
+
+
+.contact-section {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #4395b2;
+}
+
+
+/* Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    text-align: left;
+    
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-top: 8px;
+    padding: 12px;
+    border: 1px solid #4395b2;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #4395b2;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    width: 35%;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    filter: brightness(120%);
+}
+
+
+
+
+/* thankspage個別パーツ */
+/* --- 背景全体 --- */
+
+
+/* --- メインコンテナ --- */
+.container {
+    padding-top: 80px;
+}
+
+/* --- THANK YOU タイトル --- */
+h1 {
+    font-size: 48px;
+    color: #1d5d86;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- 天使イラスト --- */
+.angel {
+    width: 160px;
+    margin-bottom: 30px;
+}
+
+/* --- メッセージ文 --- */
+.message {
+    font-size: 22px;
+    color: #2a6f97;
+    margin-bottom: 50px;
+}
+
+/* --- ボタン --- */
+.btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: #3d7fa8;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+/* --- ホバー演出 --- */
+.btn:hover {
+   filter: brightness(120%);
+}
+
+/* =====================================
+   天使アイコン
+===================================== */
+
+.angel {
+    width: 160px;
+    margin-bottom: 25px;
+}
+
+/* ゆっくり上下に浮くアニメーション */
+.floating {
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-14px); }
+    100% { transform: translateY(0); }
+}
+
+
+/* ============================
+レスポンシブ対応toppage
+============================== */
+
+@media screen and (min-width: 920px){
+    .subPage header h1{
+        font-size: 60px;
+    }
+    .onlySP{
+        display: none;
+    }
+    .subPage h2{
+        font-size: 30px;
+        margin-bottom: 36px;
+    }
+    .subPage h3{
+        font-size: 45px;
+        font-weight: 450;
+        margin-bottom: 40px;
+    }
+    
+}
+
